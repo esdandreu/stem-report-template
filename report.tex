@@ -1,0 +1,74 @@
+% !TeX root = ./report.tex
+\documentclass[12pt]{src/stem-report}
+
+%% Import additional packages and header definitions
+% For the LaTex newbies, \input let's you introduce a .tex file as if it were
+% part of the current file
+\input{src/packages}
+
+
+%% Macros and colour definitions.
+\input{src/macros.tex}
+\input{src/colors.tex}
+
+% *****************************************************************************
+%                     Report configuration: Tweak this
+% *****************************************************************************
+%% Developer and debug options
+% \overfullrule=5pt % Un-comment this to show a black bar by overfull hboxes.
+
+%% Title parameters
+\title{My Great Report}
+% \subtitle{So great it needs a second line} % Can be commented out
+\author{
+  Casado Herraez, Daniel \\
+  \textit{shreyjoshi2004@gmail.com} \\
+  \And
+  Gatri, Wathek \\
+  \textit{shreyjoshi2004@gmail.com} \\
+  \And
+  Gimenez Bolinches, Andreu \\
+  \textit{shreyjoshi2004@gmail.com} \\
+}
+\date{\today}
+\IfFileExists{./abstract.tex}{
+  \abstract{\input{abstract.tex}}
+}
+
+\begin{document}
+  % ***************************************************************************
+  %                              Front Page
+  % ***************************************************************************
+  \hypersetup{linkcolor=black}
+
+  %% Build title 
+  \maketitle
+  \clearpage
+  
+  \tableofcontents
+  \clearpage
+
+  % ***************************************************************************
+  %                              Main Content
+  % ***************************************************************************
+  \hypersetup{linkcolor=documentLinkColor}
+  \input{content.tex}
+
+  % ***************************************************************************
+  %                              Appendices
+  % ***************************************************************************
+  \IfFileExists{./appendices.tex}{
+    \appendix
+    \input{appendices}
+    \unappendix
+    \clearpage
+  }
+
+  % ***************************************************************************
+  %                              Bibliography
+  % ***************************************************************************
+  \singlespace
+  % Be careful with reference files list, always avoid whitespaces!
+  \bibliography{bibliography/references}
+
+\end{document}
