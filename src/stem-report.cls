@@ -21,15 +21,13 @@
 }
 % Appendix
 \RequirePackage{appendix}
-% Bibliography
-\RequirePackage[numbers,sort]{natbib}
 % Colors
 \RequirePackage{xcolor}  % Get extra colours.
 \colorlet{documentLinkColor}{blue}
 \colorlet{documentCitationColor}{black!80}
 \definecolor{headergray}{rgb}{0.5,0.5,0.5}
 % Hyperlinks
-\RequirePackage[backref,
+\RequirePackage[
         pageanchor=true,
         plainpages=false,
         pdfpagelabels,
@@ -113,15 +111,6 @@
   \setcounter{subsection}{0}%
   \gdef\thesection{\@arabic\c@section}
 }
-
-%% Bibliogragpy ---------------------------------------------------------------
-
-\renewcommand{\bibsection}{
-  \section*{\bibname}
-  \label{sec:bibliography}
-  \addcontentsline{toc}{section}{\nameref{sec:bibliography}}
-}
-\bibliographystyle{plainnat}
 
 %% Styling --------------------------------------------------------------------
 

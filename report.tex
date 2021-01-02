@@ -17,6 +17,10 @@
 %% Developer and debug options
 % \overfullrule=5pt % Un-comment this to show a black bar by overfull hboxes.
 
+%% Bibliography
+% Be careful with reference files list, always avoid whitespaces!
+\addbibresource{bibliography/references.bib}
+
 %% Title parameters
 \title{My Great Report}
 % \subtitle{So great it needs a second line} % Can be commented out
@@ -68,7 +72,9 @@
   %                              Bibliography
   % ***************************************************************************
   \singlespace
-  % Be careful with reference files list, always avoid whitespaces!
-  \bibliography{bibliography/references}
+  \printbibliography[%
+    % heading=bibintoc,%
+    title={References}%
+  ]
 
 \end{document}
