@@ -4,8 +4,51 @@ The motivation
 \subsection{Problem}
 something here
 
-\subsection{Topic}
-and there
+\subsection{Implementation}
+\href{https://www.bu.edu/math/files/2013/08/tikzpgfmanual.pdf}{Tikz Manual}
+
+\begin{tikzpicture}[node distance=5em,auto,
+    io/.style={squarebox,text width=5em,fill=gray!15}, % Style override
+    vio/.style={roundbox,text width=5em,fill=gray!5},
+    ]
+    \node (c) [roundbox, text width=15em] {Control System};
+    \node (r) [io,below=of c.east,anchor=east] {Real\\Receptor};
+    \node (e) [vio,below=of c.west,anchor=west] {Virtual\\Effector};
+
+    \path[->] 
+        (c.195) edge [left, bend right] node{0} (e.north)
+        (e.north) edge [right, bend right] node{1} (c.195)
+        (c.345) edge [left, bend right] node{0} (r.north)
+        (r.north) edge [right, bend right] node{1} (c.345)
+        ;
+
+    \begin{pgfonlayer}{background} 
+        \node (background) [back box] [fit=(c) (r) (e)] {};
+        \node (name) [anchor=north west] at (background.north west) {Agent};
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\href{https://www3.nd.edu/~kogge/courses/cse30151-fa17/Public/other/tikz_tutorial.pdf}{Finite State Machines tutorial}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[shorten >=1pt,node distance=2cm,auto]
+    \node[state,initial]  (q_0) {$q_0$};
+    \node[state]          (q_1) [above right of=q_0] {$q_1$};
+    \node[state]          (q_2) [below right of=q_0] {$q_2$};
+    \node[state,accepting](q_3) [below right of=q_1] {$q_3$};
+
+    \draw   (q_0) edge [above, bend left] node{0} (q_1)
+            (q_1) edge [below, bend left] node{1} (q_0)
+            (q_0) edge [above] node{1} (q_2)
+            (q_1) edge              node{1} (q_3)
+            (q_1) edge [loop above] node{0} ()
+            (q_2) edge              node{0} (q_3)
+            (q_2) edge [loop below] node{1} ();
+\end{tikzpicture}
+\caption{Finite state machine diagram}
+\label{fig:fms}
+\end{figure}
 
 \subsection{Objectives}
 finish

@@ -1,4 +1,10 @@
-\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{shapes,arrows,shadows,positioning,fit,backgrounds,automata}
+
+\tikzset{
+    ->,  % makes the edges directed
+    >=stealth', % makes the arrow heads bold
+    node distance=3cm % specifies the minimum distance between two nodes
+    }
 \tikzstyle{startstop} = [
     rectangle, rounded corners, minimum width=3cm, minimum height=1cm,
     align=center, draw=black, fill=red!30
@@ -21,3 +27,7 @@
     fill=green!30
     ]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{back box} = [draw, fill=gray!60, rounded corners, drop shadow,
+    inner sep=2em]
+\tikzstyle{roundbox} = [draw, fill=white!80, rounded corners, align=center]
+\tikzstyle{squarebox} = [draw, fill=white!80, very thick, align=center]
